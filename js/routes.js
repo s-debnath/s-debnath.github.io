@@ -6,7 +6,7 @@ angular
 	$routeProvider
 	.when("/home", {
 		templateUrl: "views/home.html",
-		//controller: "HomeController"
+		controller: "HomeController"
 	})
 	.when("/race/:raceId", {
 		templateUrl: "views/race.html",

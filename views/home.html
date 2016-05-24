@@ -1,11 +1,17 @@
-<section class="home">
-	<div class="">
+<!-- View template for home -->
+<section >
+	<div class="home">
 		<h1>Horse Racing Bet Calculator</h1>
-		<p>
-			Welcome to Horses Races Betting Calculator. Pick the number of horses in this race and lets get started.
-		</p>
-		<div class="btn">
-			<a href="#/race/0">Race</a>
+		<!--  Div that only shows the before the races start-->
+		<div ng-hide="racesStarted">
+			<a class="btn"  ng-click="moveToCurrentRace()">Start Racing</a>
 		</div>
+
+		<!--  Div that only shows the after the races start-->
+		<div ng-show="racesStarted">
+			<a class="btn" ng-click="moveToCurrentRace()">Continue Racing</a>
+			<a class="btn" ng-href="#/history">History</a>
+		</div>
+
 	</div>
 </section>

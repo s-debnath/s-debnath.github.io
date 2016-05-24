@@ -1,6 +1,9 @@
 html {
-	background: #228B22;
-	background: linear-gradient(60deg, #228B22, #006400); /* Standard syntax */
+	/*background: #228B22;*/
+	background: -webkit-linear-gradient(120deg, #228B22, #006400);
+	background: -o-linear-gradient(120deg, #228B22, #006400);
+	background: -moz-linear-gradient(120deg, #228B22, #006400);
+	background: linear-gradient(120deg, #228B22, #006400);
   min-height: 100%;
   height: auto;
 }
@@ -18,20 +21,21 @@ h1, h2, h3, h4, h5, h6 {
   text-shadow: 1px 1px rgb(255,255,255, 1);
 }
 
-h1{
+h1 {
   color: #145266;
   font-size: 2.2rem;
   line-height: 100%;
+	text-align: center;
   margin-bottom: 10px;
 }
 
-h2{
+h2 {
   font-size: 1.5rem;
   line-height: 90%;
   color: #c61c6f;
 }
 
-h3{
+h3 {
   margin-top: 0;
   color: #bd3613;
   line-height: 110%;
@@ -39,20 +43,37 @@ h3{
 }
 
 p {
-  line-height: 1.3rem;
+  line-height: 1.5rem;
+	text-align: justify;
   color: #10AAC0;
+	margin: auto;
   margin-bottom: 10px;
-  font-family: 'Merriweather';
+  font-family: 'Times New Roman';
+	padding: 20px 30px;
+}
+
+.home {
+	background: #063642;
+  color: #EEE8D5;
+  width: 90%;
+  min-width: 320px;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 20px;
+  padding: 20px 30px;
+	text-align: center;
 }
 
 .btn {
     display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
+		text-decoration: none;
+    padding: 10px 25px;
+		margin: auto;
     font-size: 1rem;
     text-align: center;
     vertical-align: middle;
-    cursor: pointer;
+    cursor: crosshair;
     border: 1px solid transparent;
     border-radius: 10px;
     background: #ABC456;

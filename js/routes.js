@@ -1,10 +1,12 @@
 //Configuring the module with $routeProvider
-angular.module("RaceApp").config(["$routeProvider", function ($routeProvider) {
+angular
+.module("RaceApp")
+.config(["$routeProvider", function ($routeProvider) {
 	//Different routes possible
 	$routeProvider
 	.when("/home", {
 		templateUrl: "views/home.html",
-		controller: "HomeController"
+		//controller: "HomeController"
 	})
 	.when("/race/:raceId", {
 		templateUrl: "views/race.html",

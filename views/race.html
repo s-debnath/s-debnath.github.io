@@ -1,8 +1,19 @@
 <!-- View template for race -->
 <section>
-	<p>
-		Race {{raceNum}}:
-	</p>
-	<a class="btn" href="#/home" ng-click="incrementRace()">Home</a>
+	<ol>
+		<li ng-repeat="horse in horses">
+			Horse {{horse.horseNum}}
+			<input type="number" ng-model="horse.startingTickets">
+			<input type="number" ng-model="horse.endingTickets">
+		</li>
+	</ol>
+
+	<!-- <ol>
+		<li ng-repeat="horse in horses">
+			Horse {{horse.horseNum}}
+			{{horse.startingTickets}}
+		</li>
+	</ol> -->
+	<a class="btn" href="#/home" ng-click="submitRace()">Home</a>
 
 </section>

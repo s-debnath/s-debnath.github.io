@@ -6,12 +6,12 @@
 
 	<!--  Div that only shows the before the races start-->
 	<div class="btngrp" ng-hide="racesStarted">
-		<a class="btn"  ng-click="moveToCurrentRace()">Start Racing</a>
+		<a class="btn"  ng-href="#/race/{{curRaceNum}}">Start Racing</a>
 	</div>
 
 	<!--  Div that only shows the after the races start-->
 	<div class="btngrp" ng-show="racesStarted">
-		<a class="btn" ng-click="moveToCurrentRace()">Continue Racing</a>
+		<a class="btn" ng-href="#/race/{{curRaceNum}}">Continue Racing</a>
 		<a class="btn" ng-href="#/history">History</a>
 	</div>
 </section>

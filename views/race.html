@@ -1,9 +1,10 @@
 <!-- View template for race -->
 <section>
+	<h1>Race {{raceNum}}</h1>
 
 	<!-- Div for the radio buttons -->
 	<div class="radgrp" ng-init="betValue=.25">
-		<span>Pick bet value:</span>
+		<span>Bet value:</span>
 
 		<label>
 			<input type="radio" ng-model="betValue" ng-value=".25" ng-checked="true">
@@ -16,14 +17,18 @@
 		</label>
 	</div>
 
-	<!--  Div for the input table -->
+	<!--  Div for the tables -->
 	<div class="horselist">
-		<table>
+		<table ng-hide="allValid">
 			<tbody>
+				<thead>
+					Number of tickets
+				</thead>
+
 				<tr>
 					<th>Horse</th>
-					<th>Starting Tickets</th>
-					<th>Ending Tickets</th>
+					<th>Start</th>
+					<th>End</th>
 				</tr>
 
 				<tr ng-repeat="horse in horses">
@@ -32,17 +37,41 @@
 					</td>
 
 					<td>
-						<input type="number" min="1" ng-model="horse.startingTickets" required>
+						<input type="number" min="1" ng-model="horse.startingTickets">
 					</td>
 
 					<td>
-						<input type="number" min="0" ng-model="horse.endingTickets" required>
+						<input type="number" min="0" ng-model="horse.endingTickets">
 					</td>
 
 					<td>
 						<span class="error" ng-hide="horse.validInput">Invalid Input</span>
-						<span ng-show="allValid">{{horse.winningPrice | currency}}</span>
 					</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<table ng-show="allValid">
+			<tbody>
+				<tr>
+					<th>Horse</th>
+					<th>Tickets Sold</th>
+					<th>Price</th>
+				</tr>
+
+				<tr ng-repeat="horse in horses">
+					<td>
+						{{horse.num}}
+					</td>
+
+					<td>
+						<span>{{horse.ticketsSold}}</span>
+					</td>
+
+					<td>
+						<span>{{horse.winningPrice | currency}}</span>
+					</td>
+
 				</tr>
 			</tbody>
 		</table>
@@ -50,8 +79,9 @@
 
 	<!--  Div for buttons on the bottom-->
 	<div class="btngrp">
-		<a class="btn" href="#/home">Home</a>
-		<a class="btn" ng-click="validateAndSubmit()">Submit</a>
+		<a class="btn" ng-href="#/home">Home</a>
+		<a class="btn" ng-hide="allValid" ng-click="validateAndSubmit()">Submit</a>
+		<a class="btn" ng-href="#/race/{{raceNum}}" ng-show="allValid" >Next Race</a>
 		<a class="btn" ng-href="#/history">History</a>
 	</div>
 

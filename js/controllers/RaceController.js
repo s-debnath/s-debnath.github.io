@@ -3,7 +3,7 @@ angular
 .module("RaceApp")
 .controller("RaceController", ["$scope", "$routeParams", "RaceServices", function ($scope, $routeParams, RaceServices) {
 	//Sets the current race number
-	$scope.raceNum = $routeParams.raceId + 1;
+	$scope.raceNum = Number($routeParams.raceId) + 1;
 	$scope.horses = [];
 
 	//Loops and sets the num attiribute of each horse
@@ -21,8 +21,6 @@ angular
 		//Loops through and checks validity of each horse
 		for (i = 0; i < 6; i++){
 			$scope.horses[i].validInput = (isFinite($scope.horses[i].startingTickets) && isFinite($scope.horses[i].endingTickets));
-
-			console.log(	$scope.horses[i].validInput);
 
 			if ($scope.horses[i].validInput){
 				$scope.horses[i].ticketsSold = $scope.horses[i].startingTickets - $scope.horses[i].endingTickets;
@@ -44,8 +42,6 @@ angular
 			$scope.totalMoney += $scope.horses[i].ticketsSold * Number($scope.betValue);
 		}
 
-		console.log($scope.totalMoney);
-
 		for (i = 0; i < 6; i++){
 			if ($scope.horses[i].ticketsSold > 0){
 				$scope.horses[i].winningPrice = $scope.totalMoney/$scope.horses[i].ticketsSold;
@@ -57,6 +53,8 @@ angular
 
 	//Submits the relevent information
 	function submitRace() {
+		//Must submit before increment because the currentRaceNum is being used as an index
+		RaceServices.submitRace($scope.horses);
 		RaceServices.incrementRace();
 	};
 

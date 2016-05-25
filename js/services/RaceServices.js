@@ -1,6 +1,6 @@
 angular
 .module("RaceApp")
-.service("RaceToHomeService", function () {
+.service("RaceServices", function () {
 	this.currentRaceNum = 0;
 	this.racesStarted = false;
 

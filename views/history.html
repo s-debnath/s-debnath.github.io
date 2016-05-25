@@ -1,3 +1,41 @@
 <section>
-	In Progress
+
+
+	<ul class="horselist" ng-show="racesStarted">
+		<li ng-repeat="race in races" ng-init="wasClicked=false">
+			<span ng-click="wasClicked = !wasClicked">Race {{race.num}}</span>
+			<table ng-show="wasClicked">
+				<tbody>
+					<tr>
+						<th>Horse</th>
+						<th>Tickets Sold</th>
+						<th>Price</th>
+					</tr>
+
+					<tr ng-repeat="horse in race.horses">
+						<td>
+							{{horse.num}}
+						</td>
+
+						<td>
+							<span>{{horse.ticketsSold}}</span>
+						</td>
+
+						<td>
+							<span>{{horse.winningPrice | currency}}</span>
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</li>
+	</ul>
+
+	<!--  Div that only shows the after the races start-->
+	<div class="btngrp">
+		<a class="btn" ng-href="#/home">Home</a>
+		<a class="btn" ng-href="#/race/{{curRaceNum}}">Continue Racing</a>
+	</div>
+
+
 </section>

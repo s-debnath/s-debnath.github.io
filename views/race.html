@@ -1,6 +1,6 @@
 <!-- View template for race -->
 <section>
-	<div class="horselist">
+	<!-- <div class="horselist">
 		<ul >
 			<li>
 				<span>Horse #</span>
@@ -13,7 +13,26 @@
 				<input type="number" min="0" placeholder="Ending Tickets" ng-model="horse.endingTickets" required>
 			</li>
 		</ul>
+	</div> -->
+
+	<div class="horselist">
+		<table>
+			<tbody>
+				<tr>
+					<th>Horse</th>
+					<th>Starting Tickets</th>
+					<th>Ending Tickets</th>
+				</tr>
+
+				<tr ng-repeat="horse in horses">
+					<td>{{horse.num}}</td>
+					<td><input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required></td>
+					<td><input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+
 
 	<div class="btngrp">
 		<a class="btn" href="#/home">Home</a>

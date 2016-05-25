@@ -96,6 +96,12 @@ p {
 	text-align: center;
 }
 
+.horselist table {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
 .horselist ul {
   margin: 0;
   padding: 30px;

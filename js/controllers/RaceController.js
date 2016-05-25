@@ -7,7 +7,7 @@ angular
 	$scope.horses = [];
 
 	for (i = 0; i < 6; i++){
-		$scope.horses[i] = {horseNum: i+1};
+		$scope.horses[i] = {num: i+1};
 	}
 
 	//Uses the RaceToHomeService and RaceToHistService to save relevent

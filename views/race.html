@@ -1,20 +1,22 @@
 <!-- View template for race -->
 <section>
-	<!-- <div class="horselist">
-		<ul >
-			<li>
-				<span>Horse #</span>
-				<span>Starting Tickets</span>
-				<span>Ending Tickets</span>
-			</li>
-			<li ng-repeat="horse in horses">
-				<span>Horse {{horse.horseNum}}</span>
-				<input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required>
-				<input type="number" min="0" placeholder="Ending Tickets" ng-model="horse.endingTickets" required>
-			</li>
-		</ul>
-	</div> -->
 
+	<!-- Div for the radio buttons -->
+	<div class="radgrp" ng-init="betValue=.25">
+		<span>Pick bet value:</span>
+
+		<label>
+			<input type="radio" ng-model="betValue" ng-value=".25" ng-checked="true">
+			$0.25
+		</label>
+
+		<label>
+			<input type="radio" ng-model="betValue" ng-value="1">
+			$1.00
+		</label>
+	</div>
+
+	<!--  Div for the input table -->
 	<div class="horselist">
 		<table>
 			<tbody>
@@ -25,18 +27,31 @@
 				</tr>
 
 				<tr ng-repeat="horse in horses">
-					<td>{{horse.num}}</td>
-					<td><input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required></td>
-					<td><input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required></td>
+					<td>
+						{{horse.num}}
+					</td>
+
+					<td>
+						<input type="number" min="1" ng-model="horse.startingTickets" required>
+					</td>
+
+					<td>
+						<input type="number" min="0" ng-model="horse.endingTickets" required>
+					</td>
+
+					<td>
+						<span class="error" ng-hide="horse.validInput">Invalid Input</span>
+						<span ng-show="allValid">{{horse.winningPrice | currency}}</span>
+					</td>
 				</tr>
 			</tbody>
 		</table>
 	</div>
 
-
+	<!--  Div for buttons on the bottom-->
 	<div class="btngrp">
 		<a class="btn" href="#/home">Home</a>
-		<a class="btn" href="#/home" ng-click="submitRace()">Submit</a>
+		<a class="btn" ng-click="validateAndSubmit()">Submit</a>
 		<a class="btn" ng-href="#/history">History</a>
 	</div>
 

@@ -1,8 +1,43 @@
 <!-- View template for race -->
 <section>
-	<p>
-		Race {{raceNum}}:
-	</p>
-	<a class="btn" href="#/home" ng-click="incrementRace()">Home</a>
+	<!-- <div class="horselist">
+		<ul >
+			<li>
+				<span>Horse #</span>
+				<span>Starting Tickets</span>
+				<span>Ending Tickets</span>
+			</li>
+			<li ng-repeat="horse in horses">
+				<span>Horse {{horse.horseNum}}</span>
+				<input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required>
+				<input type="number" min="0" placeholder="Ending Tickets" ng-model="horse.endingTickets" required>
+			</li>
+		</ul>
+	</div> -->
+
+	<div class="horselist">
+		<table>
+			<tbody>
+				<tr>
+					<th>Horse</th>
+					<th>Starting Tickets</th>
+					<th>Ending Tickets</th>
+				</tr>
+
+				<tr ng-repeat="horse in horses">
+					<td>{{horse.num}}</td>
+					<td><input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required></td>
+					<td><input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="btngrp">
+		<a class="btn" href="#/home">Home</a>
+		<a class="btn" href="#/home" ng-click="submitRace()">Submit</a>
+		<a class="btn" ng-href="#/history">History</a>
+	</div>
 
 </section>

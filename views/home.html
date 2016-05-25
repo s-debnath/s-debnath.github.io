@@ -2,16 +2,16 @@
 <section >
 	<div class="home">
 		<h1>Horse Racing Bet Calculator</h1>
-		<!--  Div that only shows the before the races start-->
-		<div ng-hide="racesStarted">
-			<a class="btn"  ng-click="moveToCurrentRace()">Start Racing</a>
-		</div>
+	</div>
 
-		<!--  Div that only shows the after the races start-->
-		<div ng-show="racesStarted">
-			<a class="btn" ng-click="moveToCurrentRace()">Continue Racing</a>
-			<a class="btn" ng-href="#/history">History</a>
-		</div>
+	<!--  Div that only shows the before the races start-->
+	<div class="btngrp" ng-hide="racesStarted">
+		<a class="btn"  ng-click="moveToCurrentRace()">Start Racing</a>
+	</div>
 
+	<!--  Div that only shows the after the races start-->
+	<div class="btngrp" ng-show="racesStarted">
+		<a class="btn" ng-click="moveToCurrentRace()">Continue Racing</a>
+		<a class="btn" ng-href="#/history">History</a>
 	</div>
 </section>

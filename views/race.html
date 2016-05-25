@@ -1,19 +1,24 @@
 <!-- View template for race -->
 <section>
-	<ol>
-		<li ng-repeat="horse in horses">
-			Horse {{horse.horseNum}}
-			<input type="number" ng-model="horse.startingTickets">
-			<input type="number" ng-model="horse.endingTickets">
-		</li>
-	</ol>
+	<div class="horselist">
+		<ul >
+			<li>
+				<span>Horse #</span>
+				<span>Starting Tickets</span>
+				<span>Ending Tickets</span>
+			</li>
+			<li ng-repeat="horse in horses">
+				<span>Horse {{horse.horseNum}}</span>
+				<input type="number" min="1" placeholder="Starting Tickets" ng-model="horse.startingTickets" required>
+				<input type="number" min="0" placeholder="Ending Tickets" ng-model="horse.endingTickets" required>
+			</li>
+		</ul>
+	</div>
 
-	<!-- <ol>
-		<li ng-repeat="horse in horses">
-			Horse {{horse.horseNum}}
-			{{horse.startingTickets}}
-		</li>
-	</ol> -->
-	<a class="btn" href="#/home" ng-click="submitRace()">Home</a>
+	<div class="btngrp">
+		<a class="btn" href="#/home">Home</a>
+		<a class="btn" href="#/home" ng-click="submitRace()">Submit</a>
+		<a class="btn" ng-href="#/history">History</a>
+	</div>
 
 </section>

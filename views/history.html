@@ -1,9 +1,9 @@
 <section>
 
 
-	<ul class="horselist" ng-show="racesStarted">
-		<li ng-repeat="race in races" ng-init="wasClicked=false">
-			<span ng-click="wasClicked = !wasClicked">Race {{race.num}}</span>
+	<ul class="horselist" ng-show="racesStarted" ng-init="wasClicked=false">
+		<li ng-repeat="race in races" ng-click="wasClicked = !wasClicked">
+			<span >Race {{race.num}}</span>
 			<table ng-show="wasClicked">
 				<tbody>
 					<tr>
@@ -24,7 +24,16 @@
 						<td>
 							<span>{{horse.winningPrice | currency}}</span>
 						</td>
+					</tr>
 
+					<tr>
+						<td>
+							<th>Total Money Pool</th>
+						</td>
+
+						<td>
+							<span>{{race.totalMoney | currency}}</span>
+						</td>
 					</tr>
 				</tbody>
 			</table>

@@ -22,7 +22,7 @@ angular
 		for (i = 0; i < 6; i++){
 
 			//Boolean check if appropirate fields are filled
-			$scope.horses[i].validInput = (isFinite($scope.horses[i].startingTickets) && isFinite($scope.horses[i].endingTickets));
+			$scope.horses[i].validInput = (!($scope.horses[i].startingTickets === null) && !($scope.horses[i].endingTickets === null));
 
 			if ($scope.horses[i].validInput){
 				$scope.horses[i].ticketsSold = $scope.horses[i].startingTickets - $scope.horses[i].endingTickets;

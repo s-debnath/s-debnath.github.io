@@ -34,8 +34,6 @@ angular
 			if (!$scope.horses[i].validInput){
 				$scope.allValid = false;
 			}
-
-			console.log($scope.horses[i]);
 		}
 	};
 

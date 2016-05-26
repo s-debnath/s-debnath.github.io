@@ -18,10 +18,11 @@ angular
 		return this.racesStarted;
 	}
 
-	this.submitRace = function (horses) {
+	this.submitRace = function (horses, totalMoney) {
 		this.races[this.curRaceNum] = [{}];
 		this.races[this.curRaceNum].num = this.curRaceNum + 1;
 		this.races[this.curRaceNum].horses = horses;
+		this.races[this.curRaceNum].totalMoney = totalMoney;
 	}
 
 	this.getRaces = function () {
